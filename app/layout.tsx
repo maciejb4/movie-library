@@ -53,7 +53,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.className} mx-32 my-12`}>
         <div className="my-8">
-          <nav className="w-full bg-gray-800 shadow">
+          <nav className="w-full bg-gray-900 shadow">
             <div className="justify-between px-4 md:items-center md:flex md:px-8">
               <div>
                 <div className="flex items-center justify-between py-3 md:py-5 md:block">
@@ -65,20 +65,6 @@ export default function RootLayout({
                       {navbarName}
                     </h2>
                   </Link>
-                </div>
-              </div>
-              <div>
-                <div
-                  className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0`}
-                >
-                  <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-                    <li className="text-white">
-                      <Link href="/about">About US</Link>
-                    </li>
-                    <li className="text-white">
-                      <Link href="/contact">Contact US</Link>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { Rating, StarIcon } from "@/lib/mui";
 
 export default async function MovieDetail({ params }) {
   const { movie } = params;
@@ -22,13 +22,25 @@ export default async function MovieDetail({ params }) {
 
             <div className="flex flex-col items-start space-y-3 sm:space-x-4 sm:space-y-0 sm:items-center sm:flex-row">
               <h2 className="bg-green-600 my-2 px-8 py-4 text-lg rounded">
-                {res.status}
+                {res.release_date}
               </h2>
-              <a href={`${res.homepage}`} target="_blank">
-                <h2 className="bg-blue-600 my-2 px-8 py-4 text-lg rounded">
-                  Movie Page
-                </h2>
-              </a>
+              {res.homepage && (
+                <a href={`${res.homepage}`} target="_blank">
+                  <h2 className="bg-blue-600 my-2 px-8 py-4 text-lg rounded">
+                    Movie Page
+                  </h2>
+                </a>
+              )}
+              <Rating
+                name="vote average"
+                max={10}
+                precision={0.5}
+                value={res.vote_average}
+                readOnly
+                sx={{"& .MuiRating-iconEmpty": {
+                    color: "rgb(250, 175, 0)"
+                  } }}
+              />
             </div>
           </div>
         </div>
@@ -41,7 +53,10 @@ export default async function MovieDetail({ params }) {
             loading="eager"
           />
           {res.genres.map((el) => (
-            <span key={el.id} className="inline-block whitclassNamee-nowrap rounded-[0.27rem] bg-neutral-800 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-base font-bold leading-none text-neutral-50 dark:bg-neutral-900 mt-6 mr-4">
+            <span
+              key={el.id}
+              className="inline-block whitclassNamee-nowrap rounded-[0.27rem] bg-neutral-800 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-base font-bold leading-none text-neutral-50 dark:bg-neutral-900 mt-6 mr-4"
+            >
               {el.name}
             </span>
           ))}

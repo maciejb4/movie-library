@@ -1,7 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import { MovieInterface } from "@/app/interface/Movie";
 
-export default function Movie({ movie }) {
+interface  MovieProps {
+  movie: MovieInterface
+}
+
+export default function Movie({ movie } : MovieProps) {
   const imagePath = "https://image.tmdb.org/t/p/original";
   return (
     <Link href={`/${movie.id}`}>

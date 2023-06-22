@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Rating, StarIcon } from "@/lib/mui";
+import { Rating } from "@/lib/mui";
 
 export default async function MovieDetail({ params }) {
   const { movie } = params;

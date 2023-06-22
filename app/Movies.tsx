@@ -1,4 +1,5 @@
-import Movie from "./Movie";
+import { MovieInterface } from "@/app/interface/Movie";
+import Movie from "@/app/Movie";
 
 const getMovies = async () => {
   const data = await fetch(
@@ -10,7 +11,7 @@ export default async function Movies() {
   const res = await getMovies();
   return (
     <div className="grid gap-20 grid-cols-fluid">
-      {res.results.map((movie) => (
+      {res.results.map((movie : MovieInterface) => (
         <Movie key={movie.id} movie={movie} />
       ))}
     </div>
